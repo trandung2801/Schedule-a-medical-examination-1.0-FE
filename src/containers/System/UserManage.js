@@ -6,8 +6,10 @@ import {
   getAllUsers,
   createNewUserService,
   deleteUserService,
+  editUserService
 } from "../../services/userService";
 import ModalUser from "./ModalUser";
+import ModalEditUser from "./ModalEditUser";
 import { emitter } from "../../utils/emitter";
 
 import axios from "axios";
@@ -17,11 +19,14 @@ class UserManage extends Component {
     this.state = {
       arrUsers: [],
       isOpenModalUser: false,
+      isOpenModalEditUser: false,
+      userEdit: {},
     };
   }
 
   async componentDidMount() {
     this.getAllUsersFromReact();
+    console.log();
   }
 
   getAllUsersFromReact = async () => {
@@ -57,9 +62,9 @@ class UserManage extends Component {
     }
   };
 
-  handleEditUser = async (user) => {
+  editUser = async (user) => {
     try {
-      let res = await createNewUserService(user);
+      let res = await editUserService(user);
       if (res && res.errCode !== 0) {
         alert(res.errMessage);
       } else {
@@ -73,6 +78,13 @@ class UserManage extends Component {
     } catch (e) {
       console.error(e);
     }
+  };
+
+  handleEditUser = async (user) => {
+    this.setState({
+      isOpenModalEditUser: true,
+      userEdit: user,
+    });
   };
 
   handleDeleteUser = async (user) => {
@@ -90,8 +102,14 @@ class UserManage extends Component {
   };
 
   toggleUserModal = () => {
+    console.log();
     this.setState({
       isOpenModalUser: !this.state.isOpenModalUser,
+    });
+  };
+  toggleEditUserModal = () => {
+    this.setState({
+      isOpenModalEditUser: !this.state.isOpenModalEditUser,
     });
   };
 
@@ -104,6 +122,14 @@ class UserManage extends Component {
           toggleFromParent={this.toggleUserModal}
           createNewUser={this.createNewUser}
         />
+        {this.state.isOpenModalEditUser && (
+          <ModalEditUser
+            isOpen={this.state.isOpenModalEditUser}
+            toggleFromParent={this.toggleEditUserModal}
+            currentUser={this.state.userEdit}
+            editUser={this.editUser}
+          />
+        )}
         <div className="title text-center">Hello</div>
         <div className="mx-1">
           <button

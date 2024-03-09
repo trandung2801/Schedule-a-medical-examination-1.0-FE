@@ -60,9 +60,8 @@ class ModalUser extends Component {
     }
   };
 
-  hang;
-
   toggle = () => {
+    // alert("close")
     this.props.toggleFromParent();
   };
   render() {
