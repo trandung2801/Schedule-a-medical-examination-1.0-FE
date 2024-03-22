@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as actions from "../../store/actions";
 import "./HomeHeader.scss";
-import logo from "../../../assets/logo.svg";
+import logo from "../../assets/logo.svg";
 import { FormattedMessage } from "react-intl";
-import { languages } from "../../../utils";
+import { languages } from "../../utils";
 
-import { changeLanguages } from "../../../store/actions/appActions";
+import { changeLanguages } from "../../store/actions/appActions";
 
 class HomeHeader extends Component {
   changeLanguages = (language) => {
@@ -179,7 +180,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeLanguagesRedux: (language) => dispatch(changeLanguages(language)),
+    changeLanguagesRedux: (language) =>
+      dispatch(actions.changeLanguages(language)),
   };
 };
 
