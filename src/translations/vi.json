@@ -38,6 +38,21 @@
 
       "hanbook": "Cẩm nang",
       "manage-hanbook": "Quản lý cẩm nang"
+    },
+
+    "manage-user": {
+      "add": "Thêm mới người dùng",
+      "email":"Email",
+      "password":"Mật khẩu",
+      "firstName":"Tên",
+      "lastName":"Họ",
+      "phoneNumber":"Số điện thoại",
+      "address":"Địa chỉ",
+      "gender":"Giới tính",
+      "position":"Chức danh",
+      "roleId":"vai trò",
+      "image":"Ảnh",
+      "save": "Lưu"
     }
   }
 }

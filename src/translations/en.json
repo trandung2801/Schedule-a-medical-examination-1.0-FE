@@ -38,6 +38,20 @@
 
       "hanbook": "Hanbook",
       "manage-hanbook": "Manage hanbook"
+    },
+    "manage-user": {
+      "add": "Add new user",
+      "email":"Email",
+      "password":"Password",
+      "firstName":"First Name",
+      "lastName":"Last Name",
+      "phoneNumber":"Phone Number",
+      "address":"Address",
+      "gender":"Gender",
+      "position":"Position",
+      "roleId":"RoleID",
+      "image":"Image",
+      "save": "Save"
     }
   }
 }
